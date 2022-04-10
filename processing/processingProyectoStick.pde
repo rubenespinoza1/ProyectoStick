@@ -28,16 +28,17 @@ void setup()
   textFont ( f, 16 ) ; 
   pX = 256;
   pY = 256;
+  background(102);
   strokeWeight(8);
+  //noLoop();
+  //delay(500);
 }
 
 
 void draw()
 {
   
-  fill(0) ;
-  clear() ; 
-  fill(255) ; 
+  fill(255) ;
   if (b == 1)
   {
     
@@ -50,16 +51,22 @@ void draw()
   }
   
   if (painting){
-    text("AnalogX="+(1023-x)+" AnalogY="+(1023-y)+ " minX="+minX + " maxX="+maxX,10,20);
+    //text("AnalogX="+(1023-x)+" AnalogY="+(1023-y)+ " minX="+minX + " maxX="+maxX,10,20);
     /*if((|x-pX|)>20){
       x++
     }*/
-    x = pX;
-    y = pY;
+    
     stroke(153);
-    line(pX,pY,x+10,y+10);
-  }
-  ellipse(x/2, y/2, 20, 20);
+    line(pX,pY,x/2,y/2);
+    ellipse(x/2, y/2, 4, 4);
+    pX = x/2;
+    pY = y/2;
+  }else{
+    clear();
+    ellipse(x/2, y/2, 20, 20);
+  }  
+  
+  //redraw();
 }
 
 
