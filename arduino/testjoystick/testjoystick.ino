@@ -20,6 +20,6 @@ void loop()
   Serial.print(",");
   Serial.print(!bValue);
   Serial.print("\n");
-  delay(500);
+  delay(10);
     
 }
