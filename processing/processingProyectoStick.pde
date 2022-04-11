@@ -57,7 +57,7 @@ void draw()
 
   fill(255) ;
   stroke(255);
-  text("x=" + x/2 + "y=" + y/2 , 10,10);
+  text("Esta pintando",20,20);
   System.out.println("painting="+painting);
   if (b == 1)
   {
