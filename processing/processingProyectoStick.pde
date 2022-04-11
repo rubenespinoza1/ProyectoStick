@@ -17,6 +17,11 @@ int pointerY;
 int minX;
 int maxX;
 
+boolean primeraEjecucion = true;
+
+PGraphics canvas = new PGraphics();
+PGraphics canvasBack = new PGraphics();
+
 PFont f;
 String portName;
 String val;
@@ -37,22 +42,23 @@ void setup()
   
   pointerX = 256;
   pointerY = 256;
-background(0);
-  //strokeWeight(8);
-  //noLoop();
-  //delay(500);
+  canvas = createGraphics(512,512);
+  canvasBack = createGraphics(512,512);
+  
+  image(canvasBack,0,0);
+  background(0);
+  delay(2000);
   
 }
 
 
 void draw()
 {
-  
-  //clear();
-  //text("x=" + x/2 + "y=" + y/2 , 10,10);
+
   fill(255) ;
   stroke(255);
   text("x=" + x/2 + "y=" + y/2 , 10,10);
+  System.out.println("painting="+painting);
   if (b == 1)
   {
     
@@ -74,30 +80,26 @@ void draw()
     }else if (y/2 < 244){
       pointerY--;
     }
+
   if (painting){
+    canvas.beginDraw();
+    canvas.stroke(255);
+    canvas.ellipse(pointerX, pointerY, 10, 10);
+    canvas.endDraw();
     
-    
-    
-    
-    
-    
-    //clear();
-    //text("x=" + pointerX + "y=" + pointerY , 10,10);
-    
-    //line(pX,pY,pointerX,pointerY);
-    ellipse(pointerX, pointerY, 10, 10);
+    image(canvas, 0, 0);
     pX = pointerX;
     pY = pointerY;
   }else{
+    
     clear();
-    //stroke(0);
-    fill(255);
+    if (canvas != null){
+      image(canvas, 0,0 );
+    }
     ellipse(pointerX, pointerY, 10, 10);
-    //pointerX = x/2;
-    //pointerY = y/2;
+    
   }  
   
-  //redraw();
 }
 
 
